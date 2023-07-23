@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fund Trail - Vittiya Anveshak</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('financial_analysis.static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="center-container">
+        <h1>Fund Trail</h1>
+        <p>Choose 2 to 6 individuals and upload transaction files for each of them.</p>
+        <form id="fundTrailForm" method="post" enctype="multipart/form-data">
+            <label for="num_users">Number of Users (2-6):</label>
+            <input type="number" id="num_users" name="num_users" min="2" max="6" required><br>
+            <div id="users">
+                <!-- User inputs will be added dynamically using JavaScript -->
+            </div>
+            <input type="submit" value="Build Fund Trail">
+        </form>
+    </div>
+
+    <script>
+        // JavaScript code to add dynamic user inputs
+        const form = document.getElementById('fundTrailForm');
+        const usersDiv = document.getElementById('users');
+
+        document.getElementById('num_users').addEventListener('input', function() {
+            usersDiv.innerHTML = '';
+            const numUsers = parseInt(this.value);
+            for (let i = 0; i < numUsers; i++) {
+                const userLabel = document.createElement('label');
+                userLabel.textContent = `User ${i + 1} Name:`;
+                const userInput = document.createElement('input');
+                userInput.type = 'text';
+                userInput.name = `user_${i + 1}_name`;
+                userInput.required = true;
+                const fileLabel = document.createElement('label');
+                fileLabel.textContent = `User ${i + 1} Transactions (CSV only):`;
+                const fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.name = `user_${i + 1}_file`;
+                fileInput.accept = '.csv';
+                fileInput.required = true;
+
+                usersDiv.appendChild(userLabel);
+                usersDiv.appendChild(userInput);
+                usersDiv.appendChild(document.createElement('br'));
+                usersDiv.appendChild(fileLabel);
+                usersDiv.appendChild(fileInput);
+                usersDiv.appendChild(document.createElement('br'));
+            }
+        });
+    </script>
+</body>
+</html>

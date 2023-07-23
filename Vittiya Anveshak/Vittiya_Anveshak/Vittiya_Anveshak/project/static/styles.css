@@ -1,0 +1,100 @@
+/* styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* styles for the heading */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* styles for the grid-container */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+/* styles for the grid-item */
+.grid-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* styles for the grid-item anchor */
+.grid-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* styles for the grid-item on hover */
+.grid-item:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+/* Center the entire content on the page */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Center the entire content on the page */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Box Grid styles */
+.box-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 800px;
+    margin-top: 20px;
+    /* Center the box grid within the .center-container */
+    align-self: center;
+}
+
+.box {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Placeholder chart styles */
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    /* Center the charts container within the .center-container */
+    align-self: center;
+}
+
+.chart {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.chart img {
+    max-width: 100%;
+}
+
+

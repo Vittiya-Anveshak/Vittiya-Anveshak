@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Analysis - Vittiya Anveshak</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('financial_analysis.static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="center-container">
+        <h1>Financial Analysis</h1>
+        <div class="box-grid">
+            <div class="box">
+                <h2>Enter Name and Upload Files</h2>
+                <form id="analysisForm" method="post" enctype="multipart/form-data">
+                    <label for="name">Enter Name:</label>
+                    <input type="text" id="name" name="name" required><br>
+                    <label for="files">Choose CSV Files:</label>
+                    <input type="file" id="files" name="files" accept=".csv" multiple required><br>
+                    <input type="submit" value="Analyze">
+                </form>
+                {% if error_msg %}
+                    <p class="error-message">{{ error_msg }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div id="loading" style="display: none;">
+        <p>Analyzing...</p>
+    </div>
+
+    <script>
+        // JavaScript code for form submission and loading message
+        document.getElementById('analysisForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+
+            // Show the loading message
+            const loadingDiv = document.getElementById('loading');
+            loadingDiv.style.display = 'block';
+
+            // Simulate data analysis process with setTimeout (remove this in actual implementation)
+            setTimeout(() => {
+                // Hide the loading message and submit the form
+                loadingDiv.style.display = 'none';
+                form.submit();
+            }, 2000); // Simulate 2 seconds of analysis time (adjust as needed)
+        });
+    </script>
+</body>
+</html>
+
+
